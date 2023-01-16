@@ -1,0 +1,29 @@
+---
+import BlockCard from "../components/BlockCard.astro";
+import indexData from "../downloaded/api_result.json";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <h1>Blocks for rveciana</h1>
+    <div class="thumbnails">
+      {indexData.map((block) => <BlockCard title={block.description} />)}
+    </div>
+  </body>
+</html>
+
+<style>
+  .thumbnails {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+</style>
